@@ -21,8 +21,6 @@ class PeopleCategoryController extends Controller
     public function index()
     {
         $peopleCategory=PeopleCategory::orderBy('id','desc')->paginate(10);
-
-        
         return  [
             'data'=>PeopleCategoryResource::collection($peopleCategory),
             'link'=>PeopleCategoryResource::collection($peopleCategory)->response()->getData()->links,
@@ -40,8 +38,6 @@ class PeopleCategoryController extends Controller
     {
         $validate = Validator::make($request->all(), [
             'name' => 'required|max:125|unique:people_categories,name',
-
-
         ]);
         if ($validate->fails()) {
             return response()->json(['status'=>'error','messages' => $validate->messages()], 403);

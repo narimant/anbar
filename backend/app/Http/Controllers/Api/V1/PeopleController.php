@@ -5,13 +5,9 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PeopleResource;
 use App\Models\People;
-use App\Models\PeopleCategory;
 use Exception;
-use GuzzleHttp\Psr7\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-
-use function PHPSTORM_META\map;
 
 class PeopleController extends Controller
 {
@@ -63,7 +59,7 @@ class PeopleController extends Controller
         ]);
        }
        catch(Exception $e){
-        return response()->json(['status'=>'error','message'=>$e],403);
+        return response()->json(['status'=>'error','message'=>$e->getMessage()],403);
        }
 
         return response()->json(['status'=>'success','message'=>'شخص مورد نظر با موفقیت ایجاد شد','data'=>$pepoleCreate],200);
