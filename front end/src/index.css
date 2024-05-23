@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('./assets/font/Vazirmatn[wght].woff2') format('woff2 supports variations'),
+       url('./assets/font/Vazirmatn[wght].woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: Vazirmatn;
+}
+@layer components{
+ .btn-success{
+  @apply bg-green-500 text-white px-2 py-3 rounded-md hover:bg-green-800 
+ }
+ .btn-danger{
+  @apply bg-red-500 text-white px-2 py-3 rounded-md hover:bg-red-800 
+ }
+}
